@@ -1,0 +1,25 @@
+#Maikel de Boer - maikel.deboer@hibernianetworks.com
+
+This script fils up the INOUTCOMMENT and OUTCOMMENT field in PHP weathermap config dynamicly (https://network-weathermap.com/)
+
+The LINK statements in your php weathermap config should be build up like this: 
+
+'LINK edge1.city1.us-edge1.city2.us'
+
+The hostnames are matched against the hostnames in your isis database which is fetched from the Juniper router (Tested on Juniper MX 480 runnnig 14.2R5.8), so they should match the link names.
+
+In your php weathermap configuration it would be nice to play around with the following values to make your weathermap look nice: 
+
+'LINK DEFAULT
+        COMMENTFONT 5
+        COMMENTPOS 80 20
+        COMMENTFONTCOLOR 0 0 0'
+
+The result will look as followed: 
+
+http://loopodoopo.nl/screenshots/7c630faf381c28a1.png
+
+The script is efficient, I would advise to run it once every 5 minutes or so using cron: 
+
+'*/5 * * * * python /src/wm-isis.py > /dev/null 2>&1'
+
