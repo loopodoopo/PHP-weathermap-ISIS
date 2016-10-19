@@ -23,3 +23,4 @@ The script is efficient, I would advise to run it once every 5 minutes or so usi
 
 '*/5 * * * * python /src/wm-isis.py > /dev/null 2>&1'
 
+This script depends on Junos PyEZ. Installation details for PyEZ can be found here: http://www.juniper.net/techpubs/en_US/junos-pyez1.0/topics/task/installation/junos-pyez-server-installing.html
